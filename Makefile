@@ -1,6 +1,9 @@
 # Build project dependencies
 deps-install:
-	echo 'placeholder to install pkgs'
+	source .venv/bin/activate && pip install -r requirements.txt
+
+make-deps:
+	pip freeze > requirements.txt
 
 deps-upgrade:
 	pip freeze --local | \
@@ -10,5 +13,6 @@ deps-upgrade:
 
 build: deps-install
 	echo 'placeholder build task!'
+	
 run:
 	python main.py
